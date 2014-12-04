@@ -48,6 +48,14 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", login=" + login + ", password=" + password
+				+ "]";
+	}
 	
 	
 }
