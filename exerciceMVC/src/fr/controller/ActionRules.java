@@ -11,7 +11,11 @@ package fr.controller;
  */
 public class ActionRules {
 	
-	String actionList [] = {"toLogin", "doLogin", "doLogout"};
+	private static String actionList [] = {"toLogin", "doLogin", "doLogout"};
+
+	public static String[] getActionList() {
+		return actionList;
+	}
 	
 	//ArrayList<String> arrayActionList= new ArrayList<String>();
 	

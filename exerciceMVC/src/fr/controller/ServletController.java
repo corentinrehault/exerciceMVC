@@ -23,9 +23,13 @@ public class ServletController extends HttpServlet {
 	 */
 	protected void testAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.getServletPath();
-		for (int i = 0; i<3;i++) {
-			
+		String path = request.getServletPath();
+		for (int i = 0; i < ActionRules.getActionList().length ; i++) {
+			if (path == ActionRules.getActionList()[i]) {
+				System.out.println(path);
+			} else {
+				System.out.println(path);
+			}
 		}
 		
 	}
