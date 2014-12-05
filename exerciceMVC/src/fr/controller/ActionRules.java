@@ -3,6 +3,8 @@
  */
 package fr.controller;
 
+import java.util.ArrayList;
+
 //import java.util.ArrayList;
 
 /**
@@ -11,12 +13,18 @@ package fr.controller;
  */
 public class ActionRules {
 	
-	private static String actionList [] = {"toLogin", "doLogin", "doLogout"};
-
-	public static String[] getActionList() {
-		return actionList;
+	private static String actionList [] = {"", "toLogin", "doLogin", "doLogout"};
+	public static ArrayList<String> arrayActionList= new ArrayList<String>(4);
+	
+	public static void buildArrayActionList() {
+		for (int i =0 ; i <actionList.length; i ++) {
+			arrayActionList.add(actionList[i]);
+		}
 	}
 	
-	//ArrayList<String> arrayActionList= new ArrayList<String>();
-	
+
+//	public static String[] getActionList() {
+//		return actionList;
+//	}
+
 }
