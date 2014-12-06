@@ -21,10 +21,5 @@ public class ActionRules {
 			arrayActionList.add(actionList[i]);
 		}
 	}
-	
-
-//	public static String[] getActionList() {
-//		return actionList;
-//	}
 
 }

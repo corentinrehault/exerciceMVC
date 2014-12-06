@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 /**
  * Servlet implementation class ServletController
  */
@@ -23,6 +24,8 @@ public class ServletController extends HttpServlet {
 	protected void testAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String urlReturn = null;
+		String login = request.getParameter("login");
+		String password = request.getParameter("password");
 		String uri = (String) request.getAttribute("uri");
 		int lastSlash = uri.lastIndexOf("/");
 		String cutIt = uri.substring(lastSlash + 1);
@@ -30,7 +33,6 @@ public class ServletController extends HttpServlet {
 
 		if (ActionRules.arrayActionList.contains(cutIt)) {
 
-			System.out.println("in !" + cutIt);
 			switch (cutIt) {
 
 			case "":
@@ -42,7 +44,12 @@ public class ServletController extends HttpServlet {
 				break;
 
 			case "doLogin":
-				urlReturn = "successlogin.jsp";
+				UserAction.DoLogin(login, password);
+				if (UserAction.DoLogin(login, password)) {
+					urlReturn = "successlogin.jsp";
+				} else {
+					urlReturn = "errorlogin.jsp";
+				}
 				break;
 
 			case "doLogout":
@@ -58,7 +65,6 @@ public class ServletController extends HttpServlet {
 
 
 		} else {
-			System.out.println("out !");
 			urlReturn = "forbidden.jsp";
 			request.getRequestDispatcher(urlReturn).forward(request, response);
 		}
